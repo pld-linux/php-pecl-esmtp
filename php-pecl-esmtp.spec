@@ -43,7 +43,8 @@ To rozszerzenie ma w PECL status: %{_status}.
 cd %{_modname}-%{version}
 phpize
 %configure
-%{__make}
+%{__make} \
+	CFLAGS="%{rpmcflags} -fPIC"
 
 %install
 rm -rf $RPM_BUILD_ROOT
