@@ -4,12 +4,12 @@
 Summary:	%{_modname} - ESMTP client extension
 Summary(pl):	%{_modname} - klient ESMTP
 Name:		php-pecl-%{_modname}
-Version:	0.3.0
+Version:	0.3.1
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
-# Source0-md5:	20dcc2ac88cc373672a35d4d8fcf6183
+# Source0-md5:	e1db69e1b05efd0bf7f5c7d0b6b3255f
 URL:		http://pecl.php.net/package/esmtp/
 BuildRequires:	libesmtp-devel >= 1.0.3r1
 BuildRequires:	libtool
@@ -22,12 +22,17 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		extensionsdir	%{_libdir}/php
 
 %description
-Esmtp is a wrapper for SMTP client library based on the libESMTP library.
+Esmtp is a wrapper for SMTP client library based on the libESMTP library
+(http://www.stafford.uklinux.net/libesmtp/). You can use it to send messages
+using internal SASL, and external/openssl SSL support.
 
 In PECL status of this extension is: %{_status}.
 
 %description -l pl
-Esmtp to wrapper dla biblioteki klienckiej SMTP bazowanej na libESMTP.
+Rozszerzenie esmtp to wrapper dla biblioteki klienckiej SMTP bazowanej
+na libESMTP. Mo¿e byæ u¿yte do wys³ania wiadomo¶ci z u¿yciem
+wewnêtrznego mechanizmu SASL czy za pomoc± SSL z u¿yciem zewnêtrznej
+biblioteki openssl.
 
 To rozszerzenie ma w PECL status: %{_status}.
 
