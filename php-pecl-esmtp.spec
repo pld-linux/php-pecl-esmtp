@@ -11,7 +11,7 @@ Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
 # Source0-md5:	20dcc2ac88cc373672a35d4d8fcf6183
 URL:		http://pecl.php.net/package/esmtp/
-BuildRequires:	libesmtp-devel
+BuildRequires:	libesmtp-devel >= 1.0.3r1
 BuildRequires:	libtool
 BuildRequires:	php-devel >= 3:5.0.0
 Requires:	php-common >= 3:5.0.0
