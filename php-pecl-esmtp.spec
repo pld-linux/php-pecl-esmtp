@@ -5,7 +5,7 @@ Summary:	%{_modname} - ESMTP client extension
 Summary(pl):	%{_modname} - klient ESMTP
 Name:		php-pecl-%{_modname}
 Version:	0.3.1
-Release:	1
+Release:	2
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
