@@ -22,9 +22,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		extensionsdir	%{_libdir}/php
 
 %description
-Esmtp is a wrapper for SMTP client library based on the libESMTP library
-(http://www.stafford.uklinux.net/libesmtp/). You can use it to send messages
-using internal SASL, and external/openssl SSL support.
+Esmtp is a wrapper for SMTP client library based on the libESMTP
+library (http://www.stafford.uklinux.net/libesmtp/). You can use it to
+send messages using internal SASL, and external/openssl SSL support.
 
 In PECL status of this extension is: %{_status}.
 
