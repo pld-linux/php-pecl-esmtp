@@ -18,7 +18,7 @@ URL:		http://pecl.php.net/package/esmtp/
 BuildRequires:	libesmtp-devel >= 1.0.3r1
 BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	rpmbuild(macros) >= 1.238
-%requires_php_extension
+%{?requires_php_extension}
 Requires:	%{_sysconfdir}/conf.d
 Obsoletes:	php-pear-%{_modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
