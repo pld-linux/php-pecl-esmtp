@@ -1,0 +1,23 @@
+--- ./configure~	2005-09-14 01:40:46.000000000 +0300
++++ ./configure	2005-09-14 01:42:28.000000000 +0300
+@@ -5064,8 +5064,7 @@
+   cat conftest.err >&5
+   echo "$as_me:$LINENO: \$? = $ac_status" >&5
+   (exit $ac_status); } &&
+-	 { ac_try='test -z "$ac_c_werror_flag"
+-			 || test ! -s conftest.err'
++	 { ac_try='test -z "$ac_c_werror_flag" || test ! -s conftest.err'
+   { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+   (eval $ac_try) 2>&5
+   ac_status=$?
+--- ./configure~	2005-09-14 01:48:45.000000000 +0300
++++ ./configure	2005-09-14 01:49:49.000000000 +0300
+@@ -5906,7 +5906,7 @@
+   cat conftest.err >&5
+   echo "$as_me:$LINENO: \$? = $ac_status" >&5
+   (exit $ac_status); } &&
+-	 { ac_try='test -z "$ac_c_werror_flag"
++	 { ac_try='test -z "$ac_c_werror_flag" \
+ 			 || test ! -s conftest.err'
+   { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
+   (eval $ac_try) 2>&5
