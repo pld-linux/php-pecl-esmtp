@@ -1,0 +1,11 @@
+--- ./config.m4~	2005-09-14 01:29:48.000000000 +0300
++++ ./config.m4	2005-09-14 01:29:50.000000000 +0300
+@@ -54,7 +54,7 @@
+     PHP_EVAL_LIBLINE($ESMTP_LIBS, ESMTP_SHARED_LIBADD)
+ 
+     if echo "$ESMTP_INCS" | grep -- '-pthread' > /dev/null; then
+-      CFLAGS="$CFLAGS -pthreads"
++      CFLAGS="$CFLAGS -pthread"
+     fi
+     if echo "$ESMTP_LIBS" | grep -- '-pthread' > /dev/null; then
+       ESMTP_SHARED_LIBADD="$ESMTP_SHARED_LIBADD -lpthread"
