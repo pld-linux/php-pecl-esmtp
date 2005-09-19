@@ -1,3 +1,21 @@
+# TODO
+# - fix build (see %%build)
+# - crashes for me:
+# # gdb --args php -r 'echo "11\n";'
+#[...]
+#Program received signal SIGSEGV, Segmentation fault.
+#0xb7f4732e in _zval_ptr_dtor () from /usr/lib/libphp_common-5.0.5.so
+#(gdb) bt
+#0  0xb7f4732e in _zval_ptr_dtor () from /usr/lib/libphp_common-5.0.5.so
+#1  0xb7fd7dbb in zm_shutdown_esmtp () from /usr/lib/php/esmtp.so
+#2  0xb7f56478 in module_destructor () from /usr/lib/libphp_common-5.0.5.so
+#3  0xb7f59268 in zend_hash_clean () from /usr/lib/libphp_common-5.0.5.so
+#4  0xb7f5930c in zend_hash_graceful_reverse_destroy () from /usr/lib/libphp_common-5.0.5.so
+#5  0xb7f51cd6 in zend_shutdown () from /usr/lib/libphp_common-5.0.5.so
+#6  0xb7f1491e in php_module_shutdown () from /usr/lib/libphp_common-5.0.5.so
+#7  0x0804acc9 in main ()
+#(gdb)
+
 %define		_modname	esmtp
 %define		_status		alpha
 %define		_sysconfdir	/etc/php
@@ -87,6 +105,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc %{_modname}-%{version}/{CREDITS,EXPERIMENTAL,NOTES,TODO}
+%doc %{_modname}-%{version}/{CREDITS,NOTES,TODO}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/conf.d/%{_modname}.ini
 %attr(755,root,root) %{extensionsdir}/%{_modname}.so
