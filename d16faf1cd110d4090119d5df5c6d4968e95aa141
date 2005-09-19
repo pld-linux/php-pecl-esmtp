@@ -1,0 +1,3 @@
+- added conf.d, add php api version require
+- note ./configure broken on i686 without a reason and can't find how
+  to fix it (lame patch on generated configure added)
