@@ -33,7 +33,7 @@ Patch1:		%{name}-dlfcn.patch
 URL:		http://pecl.php.net/package/esmtp/
 BuildRequires:	libesmtp-devel >= 1.0.3r1
 BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.254
+BuildRequires:	rpmbuild(macros) >= 1.322
 BuildRequires:	fix-crash
 %{?requires_php_extension}
 Requires:	%{_sysconfdir}/conf.d
