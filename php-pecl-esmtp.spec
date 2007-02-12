@@ -18,7 +18,7 @@
 %define		_modname	esmtp
 %define		_status		alpha
 Summary:	%{_modname} - ESMTP client extension
-Summary(pl.UTF-8):   %{_modname} - klient ESMTP
+Summary(pl.UTF-8):	%{_modname} - klient ESMTP
 Name:		php-pecl-%{_modname}
 Version:	0.3.1
 Release:	3.1
