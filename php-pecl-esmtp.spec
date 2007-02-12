@@ -18,7 +18,7 @@
 %define		_modname	esmtp
 %define		_status		alpha
 Summary:	%{_modname} - ESMTP client extension
-Summary(pl):	%{_modname} - klient ESMTP
+Summary(pl.UTF-8):   %{_modname} - klient ESMTP
 Name:		php-pecl-%{_modname}
 Version:	0.3.1
 Release:	3.1
@@ -45,10 +45,10 @@ send messages using internal SASL, and external/openssl SSL support.
 
 In PECL status of this extension is: %{_status}.
 
-%description -l pl
+%description -l pl.UTF-8
 Rozszerzenie esmtp to wrapper dla biblioteki klienckiej SMTP bazowanej
-na libESMTP. Mo¿e byæ u¿yte do wys³ania wiadomo¶ci z u¿yciem
-wewnêtrznego mechanizmu SASL czy za pomoc± SSL z u¿yciem zewnêtrznej
+na libESMTP. MoÅ¼e byÄ‡ uÅ¼yte do wysÅ‚ania wiadomoÅ›ci z uÅ¼yciem
+wewnÄ™trznego mechanizmu SASL czy za pomocÄ… SSL z uÅ¼yciem zewnÄ™trznej
 biblioteki openssl.
 
 To rozszerzenie ma w PECL status: %{_status}.
