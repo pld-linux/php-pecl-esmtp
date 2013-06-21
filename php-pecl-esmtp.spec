@@ -15,27 +15,28 @@
 #6  0xb7f1491e in php_module_shutdown () from /usr/lib/libphp_common-5.0.5.so
 #7  0x0804acc9 in main ()
 #(gdb)
-%define		_modname	esmtp
-%define		_status		alpha
-Summary:	%{_modname} - ESMTP client extension
-Summary(pl.UTF-8):	%{_modname} - klient ESMTP
-Name:		php-pecl-%{_modname}
+%define		php_name	php%{?php_suffix}
+%define		modname	esmtp
+%define		status		alpha
+Summary:	%{modname} - ESMTP client extension
+Summary(pl.UTF-8):	%{modname} - klient ESMTP
+Name:		%{php_name}-pecl-%{modname}
 Version:	0.3.1
 Release:	3.1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
+Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	e1db69e1b05efd0bf7f5c7d0b6b3255f
-Patch0:		%{name}-pthreads.patch
-Patch1:		%{name}-dlfcn.patch
+Patch0:		php-pecl-%{modname}-pthreads.patch
+Patch1:		php-pecl-%{modname}-dlfcn.patch
 URL:		http://pecl.php.net/package/esmtp/
-BuildRequires:	libesmtp-devel >= 1.0.3r1
-BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.344
+BuildRequires:	%{php_name}-devel >= 3:5.0.0
 BuildRequires:	fix-crash
+BuildRequires:	libesmtp-devel >= 1.0.3r1
+BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
-Requires:	php-common >= 4:5.0.4
-Obsoletes:	php-pear-%{_modname}
+Requires:	php(core) >= 5.0.4
+Obsoletes:	php-pear-%{modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,7 +44,7 @@ Esmtp is a wrapper for SMTP client library based on the libESMTP
 library (http://www.stafford.uklinux.net/libesmtp/). You can use it to
 send messages using internal SASL, and external/openssl SSL support.
 
-In PECL status of this extension is: %{_status}.
+In PECL status of this extension is: %{status}.
 
 %description -l pl.UTF-8
 Rozszerzenie esmtp to wrapper dla biblioteki klienckiej SMTP bazowanej
@@ -51,15 +52,14 @@ na libESMTP. Może być użyte do wysłania wiadomości z użyciem
 wewnętrznego mechanizmu SASL czy za pomocą SSL z użyciem zewnętrznej
 biblioteki openssl.
 
-To rozszerzenie ma w PECL status: %{_status}.
+To rozszerzenie ma w PECL status: %{status}.
 
 %prep
-%setup -q -c
-cd %{_modname}-%{version}
+%setup -qc
+mv %{modname}-%{version}/* .
 %patch0 -p1
 
 %build
-cd %{_modname}-%{version}
 phpize
 
 # i have no damn clue, how to fix it "properly", but it's causing
@@ -72,7 +72,7 @@ phpize
 #./configure: syntax error: `||' unexpected
 #configure:5073: $? = 1
 # so, therefore the patch.
-patch -p1 < %{PATCH1}
+%{__patch} -p1 < %{PATCH1}
 %configure
 %{__make} \
 	CFLAGS="%{rpmcflags} -fPIC"
@@ -81,10 +81,10 @@ patch -p1 < %{PATCH1}
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{php_sysconfdir}/conf.d,%{php_extensiondir}}
 
-install %{_modname}-%{version}/modules/%{_modname}.so $RPM_BUILD_ROOT%{php_extensiondir}
-cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{_modname}.ini
-; Enable %{_modname} extension module
-extension=%{_modname}.so
+install -p modules/%{modname}.so $RPM_BUILD_ROOT%{php_extensiondir}
+cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
+; Enable %{modname} extension module
+extension=%{modname}.so
 EOF
 
 %clean
@@ -100,6 +100,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc %{_modname}-%{version}/{CREDITS,NOTES,TODO}
-%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{_modname}.ini
-%attr(755,root,root) %{php_extensiondir}/%{_modname}.so
+%doc CREDITS NOTES TODO
+%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
+%attr(755,root,root) %{php_extensiondir}/%{modname}.so
